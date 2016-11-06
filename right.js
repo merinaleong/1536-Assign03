@@ -3,23 +3,17 @@ var ctx;
 
 // order : opposite, side, celling, shadow, door
 function drawGray1() {
-    
+
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(604, 136);
-    ctx.lineTo(604, 162);
-    
-    ctx.moveTo(604, 162);
-    ctx.lineTo(848, 156);
-    
-    ctx.moveTo(848, 156);
-    ctx.lineTo(848, 82);
-    
-    ctx.moveTo(848, 82);
-    ctx.lineTo(604, 136);
+    ctx.moveTo(604, 196);
+    ctx.lineTo(604, 222);
+    ctx.lineTo(848, 216);
+    ctx.lineTo(848, 142);
+    ctx.lineTo(604, 196);
     ctx.closePath();
     //style
-    
+
     ctx.lineWidth = 2;
     ctx.fillStyle = 'gray';
     ctx.fill();
@@ -30,15 +24,10 @@ function drawGray1() {
 function drawWall1() {
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(604, 162);
-    ctx.lineTo(604, 376);
-    
-    ctx.moveTo(604, 376);
-    ctx.lineTo(848, 392);
-    
-    
-    ctx.moveTo(848, 392);
-    ctx.lineTo(848, 156);
+    ctx.moveTo(604, 222);
+    ctx.lineTo(604, 436);
+    ctx.lineTo(848, 452);
+    ctx.lineTo(848, 216);
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -49,16 +38,12 @@ function drawWall1() {
 function drawGray2(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(848, 156);
-    ctx.lineTo(1073, 173);
-    
-    ctx.moveTo(1073, 173);
-    ctx.lineTo(1073, 116);
-    
-    ctx.moveTo(1073, 116);
-    ctx.lineTo(848, 82);
-    
-    
+    ctx.moveTo(848, 216);
+    ctx.lineTo(1073, 233);
+    ctx.lineTo(1073, 176);
+    ctx.lineTo(848, 142);
+
+
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -69,11 +54,9 @@ function drawGray2(){
 function drawWall2(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(848, 392);
-    ctx.lineTo(1073, 350);
-    
-    ctx.moveTo(1073, 350);
-    ctx.lineTo(1073, 173);
+    ctx.moveTo(848, 452);
+    ctx.lineTo(1073, 410);
+    ctx.lineTo(1073, 233);
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -85,18 +68,12 @@ function drawWall2(){
 function drawCell1(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(589, 113);
-    ctx.lineTo(588, 141);
-    
-    ctx.moveTo(588, 141);
-    ctx.lineTo(880, 73);
-    
-    ctx.moveTo(880, 73);
-    ctx.lineTo(880, 38);
-    
-    ctx.moveTo(880, 38);
-    ctx.lineTo(589, 113);
-    
+    ctx.moveTo(589, 173);
+    ctx.lineTo(588, 201);
+    ctx.lineTo(880, 133);
+    ctx.lineTo(880, 98);
+    ctx.lineTo(589, 173);
+
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -107,14 +84,10 @@ function drawCell1(){
 function drawCell2(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(880, 73);
-    ctx.lineTo( 1124, 114);
-    
-    ctx.moveTo(1124, 114);
-    ctx.lineTo(1124, 86);
-    
-    ctx.moveTo(1124, 86);
-    ctx.lineTo(880, 38);
+    ctx.moveTo(880, 133);
+    ctx.lineTo( 1124, 174);
+    ctx.lineTo(1124, 146);
+    ctx.lineTo(880, 98);
 
     ctx.closePath();
     // style
@@ -126,8 +99,8 @@ function drawCell2(){
 function drawShadow(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(1073, 122);
-    ctx.lineTo(1124, 114);
+    ctx.moveTo(1073, 182);
+    ctx.lineTo(1124, 174);
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -138,20 +111,12 @@ function drawShadow(){
 function drawWall3(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(592, 141);
-    ctx.lineTo(588, 141);
-    
-    ctx.moveTo(588, 141);
-    ctx.lineTo(553, 141);
-    
-    ctx.moveTo(553, 141);
-    ctx.lineTo(536, 138);
-    
-    ctx.moveTo(536, 138);
-    ctx.lineTo(536, 373);
-    
-    ctx.moveTo(536, 373);
-    ctx.lineTo(604, 376);
+    ctx.moveTo(592, 201);
+    ctx.lineTo(588, 201);
+    ctx.lineTo(553, 201);
+    ctx.lineTo(536, 198);
+    ctx.lineTo(536, 433);
+    ctx.lineTo(604, 436);
     ctx.closePath();
     //style
     ctx.lineWidth = 2;
@@ -160,18 +125,18 @@ function drawWall3(){
 }
 
 function drawDoor(){
-    ctx.rect(550, 180, 40, 170);
+    ctx.rect(550, 230, 40, 170);
     ctx.fillStyle = 'blue';
     ctx.fill();
     ctx.strokeStyle = 'black';
     ctx.stroke();
-    
 }
+
 function draw() {
     "use strict";
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
-    
+
     drawGray1();
     drawWall1();
     drawGray2();
