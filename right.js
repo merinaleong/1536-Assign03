@@ -6,11 +6,11 @@ function drawGray1() {
 
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(604, 196);
-    ctx.lineTo(604, 222);
-    ctx.lineTo(848, 216);
-    ctx.lineTo(848, 142);
-    ctx.lineTo(604, 196);
+    ctx.moveTo(604, 246);
+    ctx.lineTo(604, 272);
+    ctx.lineTo(848, 266);
+    ctx.lineTo(848, 192);
+    ctx.lineTo(604, 246);
     ctx.closePath();
     //style
 
@@ -24,10 +24,10 @@ function drawGray1() {
 function drawWall1() {
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(604, 222);
-    ctx.lineTo(604, 436);
-    ctx.lineTo(848, 452);
-    ctx.lineTo(848, 216);
+    ctx.moveTo(604, 272);
+    ctx.lineTo(604, 486);
+    ctx.lineTo(848, 502);
+    ctx.lineTo(848, 266);
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -38,10 +38,10 @@ function drawWall1() {
 function drawGray2(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(848, 216);
-    ctx.lineTo(1073, 233);
-    ctx.lineTo(1073, 176);
-    ctx.lineTo(848, 142);
+    ctx.moveTo(848, 266);
+    ctx.lineTo(1073, 283);
+    ctx.lineTo(1073, 226);
+    ctx.lineTo(848, 192);
 
 
     ctx.closePath();
@@ -54,9 +54,9 @@ function drawGray2(){
 function drawWall2(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(848, 452);
-    ctx.lineTo(1073, 410);
-    ctx.lineTo(1073, 233);
+    ctx.moveTo(848, 502);
+    ctx.lineTo(1073, 460);
+    ctx.lineTo(1073, 283);
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -68,11 +68,11 @@ function drawWall2(){
 function drawCell1(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(589, 173);
-    ctx.lineTo(588, 201);
-    ctx.lineTo(880, 133);
-    ctx.lineTo(880, 98);
-    ctx.lineTo(589, 173);
+    ctx.moveTo(589, 223);
+    ctx.lineTo(588, 251);
+    ctx.lineTo(880, 183);
+    ctx.lineTo(880, 148);
+    ctx.lineTo(589, 223);
 
     ctx.closePath();
     // style
@@ -84,10 +84,10 @@ function drawCell1(){
 function drawCell2(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(880, 133);
-    ctx.lineTo( 1124, 174);
-    ctx.lineTo(1124, 146);
-    ctx.lineTo(880, 98);
+    ctx.moveTo(880, 183);
+    ctx.lineTo( 1124, 224);
+    ctx.lineTo(1124, 196);
+    ctx.lineTo(880, 148);
 
     ctx.closePath();
     // style
@@ -99,8 +99,8 @@ function drawCell2(){
 function drawShadow(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(1073, 182);
-    ctx.lineTo(1124, 174);
+    ctx.moveTo(1073, 232);
+    ctx.lineTo(1124, 224);
     ctx.closePath();
     // style
     ctx.lineWidth = 2;
@@ -111,12 +111,12 @@ function drawShadow(){
 function drawWall3(){
     "use strict";
     ctx.beginPath();
-    ctx.moveTo(592, 201);
-    ctx.lineTo(588, 201);
-    ctx.lineTo(553, 201);
-    ctx.lineTo(536, 198);
-    ctx.lineTo(536, 433);
-    ctx.lineTo(604, 436);
+    ctx.moveTo(592, 251);
+    ctx.lineTo(588, 251);
+    ctx.lineTo(553, 251);
+    ctx.lineTo(536, 248);
+    ctx.lineTo(536, 483);
+    ctx.lineTo(604, 486);
     ctx.closePath();
     //style
     ctx.lineWidth = 2;
@@ -125,8 +125,24 @@ function drawWall3(){
 }
 
 function drawDoor(){
-    ctx.rect(550, 230, 40, 170);
+    ctx.rect(550, 280, 40, 170);
     ctx.fillStyle = 'blue';
+    ctx.fill();
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+}
+
+function drawChimney(){
+  "use strict";
+    ctx.beginPath();
+    ctx.moveTo(631, 156);
+    ctx.lineTo(631, 156);
+    ctx.lineTo(631, 48);
+    ctx.lineTo(651, 48);
+    ctx.lineTo(536, 483);
+    ctx.lineTo(654, 90);
+    ctx.closePath();
+    ctx.fillStyle = 'gray';
     ctx.fill();
     ctx.strokeStyle = 'black';
     ctx.stroke();
@@ -146,4 +162,5 @@ function draw() {
     drawShadow();
     drawWall3();
     drawDoor();
+    drawChimney();
 }
