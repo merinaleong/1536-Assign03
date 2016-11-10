@@ -1,6 +1,6 @@
 var canvas;
 var ctx;
-var x = 200;
+var x = 40;
 var y = 300;
 // order : opposite, side, celling, shadow, door
 function gray1() {
@@ -183,7 +183,7 @@ function grayL1(){
     ctx.beginPath();
     ctx.moveTo(226, 84);
     ctx.lineTo(228, 168);
-    ctx.lineTo(490, 164);
+    ctx.lineTo(490, 168);
     ctx.lineTo(492, 130);
     ctx.closePath();
     // style
@@ -243,29 +243,84 @@ function grayL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
+
+    function smoke(){
+        "use strict";
+        ctx.beginPath();
+        ctx.rect(450, -10, 80, 100);
+        ctx.closePath();
+        ctx.fillStyle = "rgb(253, 187, 108)";
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+    }
+
+    function sky(){
+        "use strict";
+        ctx.beginPath();
+        ctx.rect(0, 0, 500, 300);
+        ctx.closePath();
+        ctx.fillStyle = "cyan";
+        ctx.fill();
+    }
+
+    function ground(){
+        "use strict";
+        ctx.beginPath();
+        ctx.rect(0, 300, 500, 200);
+        ctx.closePath();
+        ctx.fillStyle = "lightgreen";
+        ctx.fill();
+    }
+
+    function path(){
+        "use strict";
+        ctx.beginPath();
+        ctx.arc(50, 310, 230, 0*Math.PI, 0.5*Math.PI);
+        ctx.closePath();
+        
+        ctx.fillStyle = "lightgray";
+        ctx.fill();
+    }
     
+    function sun(){
+        "use strict";
+        ctx.beginPath();
+        ctx.arc(0, 0, 100, 0, 1*Math.PI);
+        ctx.closePath();
+        
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+    }
     function draw(){
-    "use strict";
-    canvas = document.getElementById("canvas");
-    ctx = canvas.getContext("2d");
-    ctx.save();
-    ctx.scale(0.35,0.35); 
-    ctx.translate(x,y);
-    gray1();
-    wall1();
-    gray2();
-    wall2();
-    cell1();
-    cell2();
-    shadow();
-    wall3();
-    door();
-   
-    middle();
-    cellL1();
-    grayL1();
-    wallL1();
-    shadowL();
-    celling();
-    ctx.restore();
+        "use strict";
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+        sky();
+        ground();
+        sun();
+        path();
+        ctx.save();
+        ctx.scale(0.4,0.55); 
+        ctx.translate(x,y);
+        gray1();
+        wall1();
+        gray2();
+        wall2();
+        cell1();
+        cell2();
+        shadow();
+        wall3();
+        door();
+        
+        middle();
+        cellL1();
+        grayL1();
+        wallL1();
+        shadowL();
+
+        smoke();
+        celling();
+        ctx.restore();
     }
