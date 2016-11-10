@@ -1,0 +1,25 @@
+h2,h3{
+    text-align: center;
+    color: blueviolet;
+}
+
+body{
+    width:500px;
+    height:500px;
+    margin: auto;
+    background-color: lightyellow;
+}
+
+form{
+    width:500px;
+    text-align: center;
+}
+
+.footer{
+    width: 500px;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    background-color: mistyrose;
+    color: purple;
+}
