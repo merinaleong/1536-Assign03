@@ -275,114 +275,38 @@ function sun(){
         ctx.fill();
     }
 
-var smokeShape = {x: 210, y: 140, r: 20, s: 0, e: 2*Math.PI};
+var radius = 20;
+var startA = 0;
+var endA = 2*Math.PI;
 var opacity = 0.8;
-var height = 50;
-var yMinus = 0.5;
-var yStart = 140;
+var smokeArray = [];
 
-function smoke(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(smokeShape.x,smokeShape.y,smokeShape.r,smokeShape.s,smokeShape.e);
-  ctx.fillStyle = "rgba(255,255,255,"+opacity+")";
-  ctx.fill();
-   if (smokeShape.y > height){
-     smokeShape.y -= yMinus;
-     opacity -= 0.008;
-   } else {
-     smokeShape.y = yStart;
-     opacity = 0.8;//before
-   }
+function object(){
+  var start = {
+    x: 210,
+    y: 145
+  }
+  smokeArray.push(start);
 }
 
-var smokeShape1 = {x: 205, y: 140, r: 20, s: 0, e: 2*Math.PI};
-var opacity1 = 0.7;
-var height1 = 49;
-var yMinus1 = 0.5;
-var yStart1 = 140;
-
-function smoke1(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(smokeShape1.x,smokeShape1.y,smokeShape1.r,smokeShape1.s,smokeShape1.e);
-  ctx.fillStyle = "rgba(255,255,255,"+opacity1+")";
-  ctx.fill();
-   if (smokeShape1.y > height1){
-     smokeShape1.y -= yMinus1;
-     opacity1 -= 0.008;
-   } else {
-     smokeShape1.y = yStart1;
-     opacity1 = 0.8;//before
-   }
-}
-
-var smokeShape2 = {x: 215, y: 145, r: 25, s: 0, e: 2*Math.PI};
-var opacity2 = 0.6;
-var height2 = 48;
-var yMinus2 = 0.5;
-var yStart2 = 145;
-
-function smoke2(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(smokeShape2.x,smokeShape2.y,smokeShape2.r,smokeShape2.s,smokeShape2.e);
-  ctx.fillStyle = "rgba(255,255,255,"+opacity2+")";
-  ctx.fill();
-   if (smokeShape2.y > height2){
-     smokeShape2.y -= yMinus2;
-     opacity2 -= 0.008;
-   } else {
-     smokeShape2.y = yStart2;
-     opacity2 = 0.8;
-   }
-}
-
-var smokeShape3 = {x: 200, y: 125, r: 10, s: 0, e: 2*Math.PI};
-var opacity3 = 1.0;
-var height3 = 47;
-var yMinus3 = 0.5;
-var yStart3 = 125;
-
-function smoke3(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(smokeShape3.x,smokeShape3.y,smokeShape3.r,smokeShape3.s,smokeShape3.e);
-  ctx.fillStyle = "rgba(255,255,255,"+opacity3+")";
-  ctx.fill();
-   if (smokeShape3.y > height3){
-     smokeShape3.y -= yMinus3;
-     opacity3 -= 0.008;
-   } else {
-     smokeShape3.y = yStart3;
-     opacity3 = 0.80;
-   }
-}
-
-var smokeShape4 = {x: 220, y: 120, r: 15, s: 0, e: 2*Math.PI};
-var opacity4 = 0.95;
-var height4 = 46;
-var yMinus4 = 0.5;
-var yStart4 = 120;
-
-function smoke4(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(smokeShape4.x,smokeShape4.y,smokeShape4.r,smokeShape4.s,smokeShape4.e);
-  ctx.fillStyle = "rgba(255,255,255,"+opacity4+")";
-  ctx.fill();
-   if (smokeShape4.y > height4){
-     smokeShape4.y -= yMinus4;
-     opacity4 -= 0.008;
-   } else {
-     smokeShape4.y = yStart4;
-     opacity4 = 0.80;
-   }
+function smokeArray1(){
+    for(var i = 0; i < smokeArray.length; i++)
+    {
+      smokeArray[i].y -= 1;
+      if ((Math.random() * 2) > 1){
+        smokeArray[i].x += Math.random() * 3;
+      }
+      else {
+      smokeArray[i].x -= Math.random() * 3;
+      }
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "rgba(255,255,255,0.055)";
+      ctx.beginPath();
+      ctx.arc(smokeArray[i].x,smokeArray[i].y,radius,startA,endA);
+      ctx.fill();
+      ctx.closePath();
+    }
 }
 
 function draw(){
@@ -417,16 +341,9 @@ function draw(){
         ctx.restore();
     }
 
-function scene(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  var time = setInterval(function () {
-    draw();
-    smoke();
-    smoke1();
-    smoke2();
-    smoke3();
-    smoke4();
-  }, 30);
-    var slider = document.getElementById("slides").value;
+var time1 = setInterval(function() {draw(); object(); smokeArray1;}, 40);
+function scene(newValue){
+  clearInterval(time1);
+  newValue = 100 - newValue;
+  time1 = setInterval(function () {draw(); object(); smokeArray1();}, newValue);
 }
