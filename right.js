@@ -275,12 +275,14 @@ function sun(){
         ctx.fill();
     }
 
+// variables for the smoke particles
 var radius = 20;
 var startA = 0;
 var endA = 2*Math.PI;
 var opacity = 0.8;
 var smokeArray = [];
 
+// create a smoke particle object
 function object(){
   var start = {
     x: 210,
@@ -289,6 +291,7 @@ function object(){
   smokeArray.push(start);
 }
 
+// smoke array for smoke particles
 function smokeArray1(){
     for(var i = 0; i < smokeArray.length; i++)
     {
@@ -309,6 +312,7 @@ function smokeArray1(){
     }
 }
 
+// draws basic canvas for everything besides the smoke
 function draw(){
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
@@ -341,6 +345,7 @@ function draw(){
         ctx.restore();
     }
 
+// sets interval for smoke and house to be drawn
 var time1 = setInterval(function() {draw(); object(); smokeArray1;}, 40);
 function scene(newValue){
   clearInterval(time1);
