@@ -3,10 +3,12 @@ header,h3,h4{
     color: gray;
     font-family: Arial;
 }
-
+#slider{
+   text-align: center;
+}
 body{
     width:500px;
-    height:1000px;
+    height:1050px;
     margin: auto;
     background-color: lightyellow;
     font-family: Arial;
