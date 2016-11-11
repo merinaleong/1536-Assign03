@@ -18,7 +18,6 @@ function gray1() {
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function wall1() {
     "use strict";
     ctx.beginPath();
@@ -34,7 +33,6 @@ function wall1() {
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function gray2(){
     "use strict";
     ctx.beginPath();
@@ -50,7 +48,6 @@ function gray2(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function wall2(){
     "use strict";
     ctx.beginPath();
@@ -66,8 +63,6 @@ function wall2(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
-
 function cell1(){
     "use strict";
     ctx.beginPath();
@@ -83,7 +78,6 @@ function cell1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function cell2(){
     "use strict";
     ctx.beginPath();
@@ -99,7 +93,6 @@ function cell2(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function shadow(){
     "use strict";
     ctx.beginPath();
@@ -115,7 +108,6 @@ function shadow(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function wall3(){
     "use strict";
     ctx.beginPath();
@@ -133,7 +125,6 @@ function wall3(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 function door(){
     "use strict";
     ctx.beginPath();
@@ -145,7 +136,6 @@ function door(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
 // left part
 function middle(){
     "use strict";
@@ -177,7 +167,6 @@ function cellL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-    
 function grayL1(){
     "use strict";
     ctx.beginPath();
@@ -193,8 +182,7 @@ function grayL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-
-    function wallL1(){
+function wallL1(){
     "use strict";
     ctx.beginPath();
     ctx.moveTo(228,170);
@@ -210,8 +198,7 @@ function grayL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
-
-    function shadowL(){
+function shadowL(){
     "use strict";
     ctx.beginPath();
     ctx.moveTo(492, 130);
@@ -226,8 +213,7 @@ function grayL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
-        
-    function celling(){
+function celling(){
     "use strict";
     ctx.beginPath();
     ctx.moveTo(533, 84);
@@ -243,8 +229,7 @@ function grayL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
-
-    function smoke(){
+function smokeStack(){
         "use strict";
         ctx.beginPath();
         ctx.rect(450, -10, 80, 100);
@@ -255,8 +240,7 @@ function grayL1(){
         ctx.strokeStyle = 'black';
         ctx.stroke();
     }
-
-    function sky(){
+function sky(){
         "use strict";
         ctx.beginPath();
         ctx.rect(0, 0, 500, 300);
@@ -264,8 +248,7 @@ function grayL1(){
         ctx.fillStyle = "cyan";
         ctx.fill();
     }
-
-    function ground(){
+function ground(){
         "use strict";
         ctx.beginPath();
         ctx.rect(0, 300, 500, 200);
@@ -273,36 +256,145 @@ function grayL1(){
         ctx.fillStyle = "lightgreen";
         ctx.fill();
     }
-
-    function path(){
+function path(){
         "use strict";
         ctx.beginPath();
         ctx.arc(50, 310, 230, 0*Math.PI, 0.5*Math.PI);
         ctx.closePath();
-        
+
         ctx.fillStyle = "lightgray";
         ctx.fill();
     }
-    
-    function sun(){
+function sun(){
         "use strict";
         ctx.beginPath();
         ctx.arc(0, 0, 100, 0, 1*Math.PI);
         ctx.closePath();
-        
+
         ctx.fillStyle = "yellow";
         ctx.fill();
     }
-    function draw(){
+
+var smokeShape = {x: 210, y: 140, r: 20, s: 0, e: 2*Math.PI};
+var opacity = 0.8;
+var height = 50;
+var yMinus = 0.5;
+var yStart = 140;
+
+function smoke(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(smokeShape.x,smokeShape.y,smokeShape.r,smokeShape.s,smokeShape.e);
+  ctx.fillStyle = "rgba(255,255,255,"+opacity+")";
+  ctx.fill();
+   if (smokeShape.y > height){
+     smokeShape.y -= yMinus;
+     opacity -= 0.008;
+   } else {
+     smokeShape.y = yStart;
+     opacity = 0.8;//before
+   }
+}
+
+var smokeShape1 = {x: 205, y: 140, r: 20, s: 0, e: 2*Math.PI};
+var opacity1 = 0.7;
+var height1 = 49;
+var yMinus1 = 0.5;
+var yStart1 = 140;
+
+function smoke1(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(smokeShape1.x,smokeShape1.y,smokeShape1.r,smokeShape1.s,smokeShape1.e);
+  ctx.fillStyle = "rgba(255,255,255,"+opacity1+")";
+  ctx.fill();
+   if (smokeShape1.y > height1){
+     smokeShape1.y -= yMinus1;
+     opacity1 -= 0.008;
+   } else {
+     smokeShape1.y = yStart1;
+     opacity1 = 0.8;//before
+   }
+}
+
+var smokeShape2 = {x: 215, y: 145, r: 25, s: 0, e: 2*Math.PI};
+var opacity2 = 0.6;
+var height2 = 48;
+var yMinus2 = 0.5;
+var yStart2 = 145;
+
+function smoke2(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(smokeShape2.x,smokeShape2.y,smokeShape2.r,smokeShape2.s,smokeShape2.e);
+  ctx.fillStyle = "rgba(255,255,255,"+opacity2+")";
+  ctx.fill();
+   if (smokeShape2.y > height2){
+     smokeShape2.y -= yMinus2;
+     opacity2 -= 0.008;
+   } else {
+     smokeShape2.y = yStart2;
+     opacity2 = 0.8;
+   }
+}
+
+var smokeShape3 = {x: 200, y: 125, r: 10, s: 0, e: 2*Math.PI};
+var opacity3 = 1.0;
+var height3 = 47;
+var yMinus3 = 0.5;
+var yStart3 = 125;
+
+function smoke3(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(smokeShape3.x,smokeShape3.y,smokeShape3.r,smokeShape3.s,smokeShape3.e);
+  ctx.fillStyle = "rgba(255,255,255,"+opacity3+")";
+  ctx.fill();
+   if (smokeShape3.y > height3){
+     smokeShape3.y -= yMinus3;
+     opacity3 -= 0.008;
+   } else {
+     smokeShape3.y = yStart3;
+     opacity3 = 0.80;
+   }
+}
+
+var smokeShape4 = {x: 220, y: 120, r: 15, s: 0, e: 2*Math.PI};
+var opacity4 = 0.95;
+var height4 = 46;
+var yMinus4 = 0.5;
+var yStart4 = 120;
+
+function smoke4(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(smokeShape4.x,smokeShape4.y,smokeShape4.r,smokeShape4.s,smokeShape4.e);
+  ctx.fillStyle = "rgba(255,255,255,"+opacity4+")";
+  ctx.fill();
+   if (smokeShape4.y > height4){
+     smokeShape4.y -= yMinus4;
+     opacity4 -= 0.008;
+   } else {
+     smokeShape4.y = yStart4;
+     opacity4 = 0.80;
+   }
+}
+
+function draw(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
         "use strict";
-        canvas = document.getElementById("canvas");
-        ctx = canvas.getContext("2d");
         sky();
         ground();
         sun();
         path();
         ctx.save();
-        ctx.scale(0.4,0.55); 
+        ctx.scale(0.4,0.55);
         ctx.translate(x,y);
         gray1();
         wall1();
@@ -313,14 +405,28 @@ function grayL1(){
         shadow();
         wall3();
         door();
-        
+
         middle();
         cellL1();
         grayL1();
         wallL1();
         shadowL();
 
-        smoke();
+        smokeStack();
         celling();
         ctx.restore();
     }
+
+function scene(){
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  var time = setInterval(function () {
+    draw();
+    smoke();
+    smoke1();
+    smoke2();
+    smoke3();
+    smoke4();
+  }, 30);
+    var slider = document.getElementById("slides").value;
+}
