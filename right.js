@@ -18,6 +18,7 @@ function gray1() {
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function wall1() {
     "use strict";
     ctx.beginPath();
@@ -33,6 +34,7 @@ function wall1() {
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function gray2(){
     "use strict";
     ctx.beginPath();
@@ -48,6 +50,7 @@ function gray2(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function wall2(){
     "use strict";
     ctx.beginPath();
@@ -63,6 +66,8 @@ function wall2(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
+
 function cell1(){
     "use strict";
     ctx.beginPath();
@@ -78,6 +83,7 @@ function cell1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function cell2(){
     "use strict";
     ctx.beginPath();
@@ -93,6 +99,7 @@ function cell2(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function shadow(){
     "use strict";
     ctx.beginPath();
@@ -108,6 +115,7 @@ function shadow(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function wall3(){
     "use strict";
     ctx.beginPath();
@@ -125,6 +133,7 @@ function wall3(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 function door(){
     "use strict";
     ctx.beginPath();
@@ -136,6 +145,7 @@ function door(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
 // left part
 function middle(){
     "use strict";
@@ -167,6 +177,7 @@ function cellL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+    
 function grayL1(){
     "use strict";
     ctx.beginPath();
@@ -182,7 +193,8 @@ function grayL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
-function wallL1(){
+
+    function wallL1(){
     "use strict";
     ctx.beginPath();
     ctx.moveTo(228,170);
@@ -198,7 +210,8 @@ function wallL1(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
-function shadowL(){
+
+    function shadowL(){
     "use strict";
     ctx.beginPath();
     ctx.moveTo(492, 130);
@@ -213,7 +226,8 @@ function shadowL(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
-function celling(){
+        
+    function celling(){
     "use strict";
     ctx.beginPath();
     ctx.moveTo(533, 84);
@@ -229,7 +243,8 @@ function celling(){
     ctx.strokeStyle = 'black';
     ctx.stroke();
     }
-function smokeStack(){
+
+    function smoke(){
         "use strict";
         ctx.beginPath();
         ctx.rect(450, -10, 80, 100);
@@ -240,7 +255,8 @@ function smokeStack(){
         ctx.strokeStyle = 'black';
         ctx.stroke();
     }
-function sky(){
+
+    function sky(){
         "use strict";
         ctx.beginPath();
         ctx.rect(0, 0, 500, 300);
@@ -248,7 +264,8 @@ function sky(){
         ctx.fillStyle = "cyan";
         ctx.fill();
     }
-function ground(){
+
+    function ground(){
         "use strict";
         ctx.beginPath();
         ctx.rect(0, 300, 500, 200);
@@ -256,73 +273,36 @@ function ground(){
         ctx.fillStyle = "lightgreen";
         ctx.fill();
     }
-function path(){
+
+    function path(){
         "use strict";
         ctx.beginPath();
         ctx.arc(50, 310, 230, 0*Math.PI, 0.5*Math.PI);
         ctx.closePath();
-
+        
         ctx.fillStyle = "lightgray";
         ctx.fill();
     }
-function sun(){
+    
+    function sun(){
         "use strict";
         ctx.beginPath();
         ctx.arc(0, 0, 100, 0, 1*Math.PI);
         ctx.closePath();
-
+        
         ctx.fillStyle = "yellow";
         ctx.fill();
     }
-
-// variables for the smoke particles
-var radius = 20;
-var startA = 0;
-var endA = 2*Math.PI;
-var opacity = 0.8;
-var smokeArray = [];
-
-// create a smoke particle object
-function object(){
-  var start = {
-    x: 210,
-    y: 145
-  }
-  smokeArray.push(start);
-}
-
-// smoke array for smoke particles
-function smokeArray1(){
-    for(var i = 0; i < smokeArray.length; i++)
-    {
-      smokeArray[i].y -= 1;
-      if ((Math.random() * 2) > 1){
-        smokeArray[i].x += Math.random() * 3;
-      }
-      else {
-      smokeArray[i].x -= Math.random() * 3;
-      }
-      var canvas = document.getElementById("canvas");
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = "rgba(255,255,255,0.055)";
-      ctx.beginPath();
-      ctx.arc(smokeArray[i].x,smokeArray[i].y,radius,startA,endA);
-      ctx.fill();
-      ctx.closePath();
-    }
-}
-
-// draws basic canvas for everything besides the smoke
-function draw(){
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
+    function draw(){
         "use strict";
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
         sky();
         ground();
         sun();
         path();
         ctx.save();
-        ctx.scale(0.4,0.55);
+        ctx.scale(0.4,0.55); 
         ctx.translate(x,y);
         gray1();
         wall1();
@@ -333,22 +313,14 @@ function draw(){
         shadow();
         wall3();
         door();
-
+        
         middle();
         cellL1();
         grayL1();
         wallL1();
         shadowL();
 
-        smokeStack();
+        smoke();
         celling();
         ctx.restore();
     }
-
-// sets interval for smoke and house to be drawn
-var time1 = setInterval(function() {draw(); object(); smokeArray1;}, 40);
-function scene(newValue){
-  clearInterval(time1);
-  newValue = 100 - newValue;
-  time1 = setInterval(function () {draw(); object(); smokeArray1();}, newValue);
-}
